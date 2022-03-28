@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_smps_adv_wizard,access.smps.adv.wizard,model_smps_adv_wizard,,1,1,1,1
+access_smps_adv_wizard_product_line,access.smps.adv.wizard.product.line,model_smps_adv_wizard_product_line,,1,1,1,1
+access_smps_adv_wizard_product_line_specific,access.smps.adv.wizard.product.line.specific,model_smps_adv_wizard_product_line_specific,,1,1,1,1
+access_smps_adv_settings,access.smps.adv.settings,model_smps_adv_settings,,1,1,1,1
+access_product_description_model_year,name_product_description_model_year,model_product_description_model_year,,1,1,1,1
+access_product_year,name_product_year,model_product_year,,1,1,1,1
+access_product_group_no,name_product_group_no,model_product_group_no,,1,1,1,1
+access_product_color,name_product_color,model_product_color,,1,1,1,1
+access_product_direction,name_product_direction,model_product_direction,,1,1,1,1
+access_product_size,name_product_size,model_product_size,,1,1,1,1
+access_product_return_duration,name_product_return_duration,model_product_return_duration,,1,1,1,1
+access_product_mo_company,name_product_mo_company,model_product_mo_company,,1,1,1,1
+access_product_creation_country,name_product_creation_country,model_product_creation_country,,1,1,1,1

@@ -1,0 +1,253 @@
+<odoo>
+    <data>
+        <record id="view_inherit_product_template_form_add_fields" model="ir.ui.view">
+            <field name="name">view.inherit.product_template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Other Info">
+                        <group>
+                            <group>
+                                <field name="product_no"/>
+                                <field name="OEM_no"/>
+                                <field name="name_english"/>
+                                <field name="mo_company_no"/>
+                                <field name="product_group_no"/>
+                                <field name="year"/>
+                                <field name="alternative_product_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="color"/>
+                                <field name="direction"/>
+                                <field name="size"/>
+                                <field name="return_duration"/>
+                                <field name="mo_company"/>
+                                <field name="creation_country"/>
+                                <field name="product_description_models" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="product_description_model_ids">
+                                <tree editable="top">
+                                    <field name="name" required="1"/>
+                                    <field name="year" required="1"/>
+                                    <field name="alternative_product_id"/>
+                                    <field name="alternative_year"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_inherit_product_template_search_add_fields" model="ir.ui.view">
+            <field name="name">view.inherit.product_template.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="OEM_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="OEM_no" context="{'group_by':'OEM_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english" context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no" context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no" context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_inherit_product_template_form_add_fields_only" model="ir.ui.view">
+            <field name="name">view.inherit.product_template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default_code']" position="attributes">
+                    <attribute name="string">المرجع الداخلى ( الباركود )</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Actions and Menuitems -->
+        <record id="product_year_action" model="ir.actions.act_window">
+            <field name="name">السنه</field>
+            <field name="res_model">product.year</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_year_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="السنه"
+                action="product_year_action"
+                sequence="21"
+        />
+        <menuitem
+                id="product_year_menu_sale"
+                parent="sale.menu_sale_config"
+                name="السنه"
+                action="product_year_action"
+                sequence="21"
+        />
+        <!-- Actions and Menuitems -->
+        <record id="product_group_no_action" model="ir.actions.act_window">
+            <field name="name">رقم مجموعه الصنف</field>
+            <field name="res_model">product.group.no</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_group_no_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="رقم مجموعه الصنف"
+                action="product_group_no_action"
+                sequence="22"
+        />
+        <menuitem
+                id="product_group_no_menu_sale"
+                parent="sale.menu_sale_config"
+                name="رقم مجموعه الصنف"
+                action="product_group_no_action"
+                sequence="22"
+        />
+        <record id="product_color_action" model="ir.actions.act_window">
+            <field name="name">اللون</field>
+            <field name="res_model">product.color</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_color_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="اللون"
+                action="product_color_action"
+                sequence="23"
+        />
+        <menuitem
+                id="product_color_menu_sale"
+                parent="sale.menu_sale_config"
+                name="اللون"
+                action="product_color_action"
+                sequence="23"
+        />
+        <record id="product_direction_action" model="ir.actions.act_window">
+            <field name="name">الاتجاه</field>
+            <field name="res_model">product.direction</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_direction_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="الاتجاه"
+                action="product_direction_action"
+                sequence="24"
+        />
+        <menuitem
+                id="product_direction_menu_sale"
+                parent="sale.menu_sale_config"
+                name="الاتجاه"
+                action="product_direction_action"
+                sequence="24"
+        />
+        <record id="product_size_action" model="ir.actions.act_window">
+            <field name="name">المقاس</field>
+            <field name="res_model">product.size</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_size_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="المقاس"
+                action="product_size_action"
+                sequence="25"
+        />
+        <menuitem
+                id="product_size_menu_sale"
+                parent="sale.menu_sale_config"
+                name="المقاس"
+                action="product_size_action"
+                sequence="25"
+        />
+        <record id="product_return_duration_action" model="ir.actions.act_window">
+            <field name="name">فتره ارتجاع الصنف</field>
+            <field name="res_model">product.return.duration</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_return_duration_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="فتره ارتجاع الصنف"
+                action="product_return_duration_action"
+                sequence="26"
+        />
+        <menuitem
+                id="product_return_duration_menu_sale"
+                parent="sale.menu_sale_config"
+                name="فتره ارتجاع الصنف"
+                action="product_return_duration_action"
+                sequence="26"
+        />
+        <record id="product_mo_company_action" model="ir.actions.act_window">
+            <field name="name">الشركه المصنعه او الماركه</field>
+            <field name="res_model">product.mo.company</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_mo_company_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="الشركه المصنعه او الماركه"
+                action="product_mo_company_action"
+                sequence="27"
+        />
+        <menuitem
+                id="product_mo_company_menu_sale"
+                parent="sale.menu_sale_config"
+                name="الشركه المصنعه او الماركه"
+                action="product_mo_company_action"
+                sequence="27"
+        />
+        <record id="product_creation_country_action" model="ir.actions.act_window">
+            <field name="name">بلد المنشأ</field>
+            <field name="res_model">product.creation.country</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem
+                id="product_creation_country_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="بلد المنشأ"
+                action="product_creation_country_action"
+                sequence="28"
+        />
+        <menuitem
+                id="product_creation_country_menu_sale"
+                parent="sale.menu_sale_config"
+                name="بلد المنشأ"
+                action="product_creation_country_action"
+                sequence="28"
+        />
+
+    </data>
+</odoo>

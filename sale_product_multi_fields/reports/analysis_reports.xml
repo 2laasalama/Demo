@@ -1,0 +1,123 @@
+<odoo>
+    <data>
+        <record id="view_inherit_sale_report_search_add_fields" model="ir.ui.view">
+            <field name="name">view.inherit.sale.report.search</field>
+            <field name="model">sale.report</field>
+            <field name="inherit_id" ref="sale.view_order_product_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='industry_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="oem_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                </xpath>
+                <group expand="1" position="inside">
+
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="oem_no" context="{'group_by':'oem_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english"
+                            context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no"
+                            context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no"
+                            context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+                </group>
+            </field>
+        </record>
+        <record id="view_inherit_account_invoice_report_search_add_fields" model="ir.ui.view">
+            <field name="name">view.inherit.account.invoice.report.search</field>
+            <field name="model">account.invoice.report</field>
+            <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_categ_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="oem_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                </xpath>
+                <group expand="1" position="inside">
+
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="oem_no" context="{'group_by':'oem_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english"
+                            context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no"
+                            context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no"
+                            context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+                </group>
+            </field>
+        </record>
+        <record id="view_inherit_purchase_report_search_add_fields" model="ir.ui.view">
+            <field name="name">view.inherit.purchase.report.report.search</field>
+            <field name="model">purchase.report</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="oem_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                </xpath>
+                <group expand="1" position="inside">
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="oem_no" context="{'group_by':'oem_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english"
+                            context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no"
+                            context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no"
+                            context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>

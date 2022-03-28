@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- #####################Stock Moves Views######################## -->
+        <record id="view_stock_move_tree_inherit_add_fields" model="ir.ui.view">
+            <field name="name">view.move.tree.inherit</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="product_no" optional="hide"/>
+                    <field name="oem_no" optional="hide"/>
+                    <field name="name_english" optional="hide"/>
+                    <field name="mo_company_no" optional="hide"/>
+                    <field name="product_group_no" optional="hide"/>
+                    <field name="year" optional="hide"/>
+                    <field name="color" optional="hide"/>
+                    <field name="direction" optional="hide"/>
+                    <field name="size" optional="hide"/>
+                    <field name="return_duration" optional="hide"/>
+                    <field name="mo_company" optional="hide"/>
+                    <field name="creation_country" optional="hide"/>
+                    <field name="product_description_models" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="stock_moves_search_add_fields" model="ir.ui.view">
+            <field name="name">picking.order.move.search</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="oem_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                </xpath>
+                <xpath expr="//group" position="inside">
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="oem_no" context="{'group_by':'oem_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english"
+                            context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no"
+                            context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no"
+                            context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_moves_view_move_line_tree_inherit_add_fields" model="ir.ui.view">
+            <field name="name">view.move.line.form.inherit</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_move_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="product_no" optional="hide"/>
+                    <field name="oem_no" optional="hide"/>
+                    <field name="name_english" optional="hide"/>
+                    <field name="mo_company_no" optional="hide"/>
+                    <field name="product_group_no" optional="hide"/>
+                    <field name="year" optional="hide"/>
+                    <field name="color" optional="hide"/>
+                    <field name="direction" optional="hide"/>
+                    <field name="size" optional="hide"/>
+                    <field name="return_duration" optional="hide"/>
+                    <field name="mo_company" optional="hide"/>
+                    <field name="creation_country" optional="hide"/>
+                    <field name="product_description_models" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_moves_search_add_fields" model="ir.ui.view">
+            <field name="name">picking.order.line.move.line.search</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.stock_move_line_view_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="oem_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                </xpath>
+                <xpath expr="//group" position="inside">
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="oem_no" context="{'group_by':'oem_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english"
+                            context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no"
+                            context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no"
+                            context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+
+                </xpath>
+            </field>
+        </record>
+
+        <!-- #####################Stock Quant Views######################## -->
+        <record id="view_stock_quant_tree_editable_add_fields" model="ir.ui.view">
+            <field name="name">stock.quant.inherit.form</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_id']" position="before">
+                    <field name="product_no" optional="hide"/>
+                    <field name="oem_no" optional="hide"/>
+                    <field name="name_english" optional="hide"/>
+                    <field name="mo_company_no" optional="hide"/>
+                    <field name="product_group_no" optional="hide"/>
+                    <field name="year" optional="hide"/>
+                    <field name="color" optional="hide"/>
+                    <field name="direction" optional="hide"/>
+                    <field name="size" optional="hide"/>
+                    <field name="return_duration" optional="hide"/>
+                    <field name="mo_company" optional="hide"/>
+                    <field name="creation_country" optional="hide"/>
+                    <field name="product_description_models" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="quant_search_view_inherit_add_fields" model="ir.ui.view">
+            <field name="name">stock.quant.search.inherit</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.quant_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="oem_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                </xpath>
+                <xpath expr="//filter[@name='locationgroup']" position="after">
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="oem_no" context="{'group_by':'oem_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english"
+                            context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no"
+                            context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no"
+                            context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- #####################Stock Valuations Views######################## -->
+        <record id="view_stock_valuation_layer_tree_inherit_add_fields" model="ir.ui.view">
+            <field name="name">view.stock.valuation.layer.tree.inherit.product_categ_id</field>
+            <field name="model">stock.valuation.layer</field>
+            <field name="inherit_id" ref="stock_account.stock_valuation_layer_tree"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="product_no" optional="hide"/>
+                    <field name="oem_no" optional="hide"/>
+                    <field name="name_english" optional="hide"/>
+                    <field name="mo_company_no" optional="hide"/>
+                    <field name="product_group_no" optional="hide"/>
+                    <field name="year" optional="hide"/>
+                    <field name="color" optional="hide"/>
+                    <field name="direction" optional="hide"/>
+                    <field name="size" optional="hide"/>
+                    <field name="return_duration" optional="hide"/>
+                    <field name="mo_company" optional="hide"/>
+                    <field name="creation_country" optional="hide"/>
+                    <field name="product_description_models" optional="hide"/>
+                </field>
+            </field>
+        </record>
+        <record id="stock_account_inventory_valuation_search_view_inherit_add_fields" model="ir.ui.view">
+            <field name="name">stock.valuation.layer.inherit</field>
+            <field name="model">stock.valuation.layer</field>
+            <field name="inherit_id" ref="stock_account.view_inventory_valuation_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="product_no"/>
+                    <field name="oem_no"/>
+                    <field name="name_english"/>
+                    <field name="mo_company_no"/>
+                    <field name="product_group_no"/>
+                    <field name="year"/>
+                    <field name="color"/>
+                    <field name="direction"/>
+                    <field name="size"/>
+                    <field name="return_duration"/>
+                    <field name="mo_company"/>
+                    <field name="creation_country"/>
+                    <field name="product_description_models"/>
+                </xpath>
+                <xpath expr="//filter[@name='group_by_product_id']" position="after">
+                    <filter string="رقم الصنف" name="product_no" context="{'group_by':'product_no'}"/>
+                    <filter string="OEM.NO" name="oem_no" context="{'group_by':'oem_no'}"/>
+                    <filter string="وصف الصنف باللغه الانجليزيه" name="name_english"
+                            context="{'group_by':'name_english'}"/>
+                    <filter string="رقم التصنيع او رقم الشركه المصنعه" name="mo_company_no"
+                            context="{'group_by':'mo_company_no'}"/>
+                    <filter string="رقم مجموعه الصنف" name="product_group_no"
+                            context="{'group_by':'product_group_no'}"/>
+                    <filter string="السنه" name="year" context="{'group_by':'year'}"/>
+                    <filter string="اللون" name="color" context="{'group_by':'color'}"/>
+                    <filter string="الاتجاه" name="direction" context="{'group_by':'direction'}"/>
+                    <filter string="المقاس" name="size" context="{'group_by':'size'}"/>
+                    <filter string="فتره ارتجاع الصنف" name="return_duration" context="{'group_by':'return_duration'}"/>
+                    <filter string="الشركه المصنعه او الماركه" name="mo_company" context="{'group_by':'mo_company'}"/>
+                    <filter string="بلد المنشأ" name="creation_country" context="{'group_by':'creation_country'}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

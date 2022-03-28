@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="groups_restrict_price_change" model="res.groups">
+        <field name="name">Edit Sales Price</field>
+    </record>
+    <record id="groups_allow_sales_price_less_than_pricelist" model="res.groups">
+        <field name="name">Allow Sales Price less than pricelist</field>
+    </record>
+
+</odoo>

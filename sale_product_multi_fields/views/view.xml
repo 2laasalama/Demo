@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record id="product_description_model_year_view_form_new" model="ir.ui.view">
+            <field name="name">product_description_model_year_form</field>
+            <field name="model">product.description.model.year</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="year"/>
+                                <field name="alternative_product_id"/>
+                                <field name="alternative_year"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_description_model_year_list_view_tree_new" model="ir.ui.view">
+            <field name="name">product.description.model.year.tree</field>
+            <field name="model">product.description.model.year</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="year"/>
+                    <field name="alternative_product_id"/>
+                    <field name="alternative_year"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION     -->
+        <record id="product_description_model_year_action" model="ir.actions.act_window">
+            <field name="name">وصف الصنف (الموديلات )</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.description.model.year</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="product_description_model_year_action"
+                  id="product_description_model_year_menu"
+                  parent="sale.menu_sale_config"
+                  name="وصف الصنف (الموديلات )"
+                  sequence="11"
+        />
+         <menuitem
+                id="product_description_model_year_menu_inventory"
+                parent="stock.menu_stock_inventory_control"
+                name="وصف الصنف (الموديلات )"
+                action="product_description_model_year_action"
+                sequence="29"
+              />
+    </data>
+</odoo>
